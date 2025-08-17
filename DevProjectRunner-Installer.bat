@@ -14,34 +14,35 @@ cd /d "%~dp0"
 :MAIN_MENU
 cls
 echo.
-echo ╔══════════════════════════════════════════════════════════════╗
-echo ║                    DEV PROJECT RUNNER                        ║
-echo ║                  Standalone Installer v1.0                  ║
-echo ║                                                              ║
-echo ║  Select installation type:                                   ║
-echo ║                                                              ║
-echo ║  [1] 🎯 RECOMMENDED - Full Installation                      ║
-echo ║      • Detailed progress and logs                            ║
-echo ║      • Error handling and recovery                           ║
-echo ║      • Creates shortcuts and launchers                       ║
-echo ║      • Time: ~10-15 minutes                                  ║
-echo ║                                                              ║
-echo ║  [2] ⚡ QUICK - Silent Installation                          ║
-echo ║      • Minimal output, faster setup                          ║
-echo ║      • Progress bar only                                     ║
-echo ║      • Essential components only                             ║
-echo ║      • Time: ~5-8 minutes                                    ║
-echo ║                                                              ║
-echo ║  [3] 🔧 CUSTOM - Advanced Options                           ║
-echo ║      • Choose components to install                          ║
-echo ║      • Specify installation directory                        ║
-echo ║      • Configure settings                                    ║
-echo ║                                                              ║
-echo ║  [4] ℹ️  SYSTEM INFO - Check Requirements                    ║
-echo ║                                                              ║
-echo ║  [0] ❌ EXIT                                                 ║
-echo ║                                                              ║
-echo ╚══════════════════════════════════════════════════════════════╝
+echo ================================================================
+echo                     DEV PROJECT RUNNER                        
+echo                   Standalone Installer v1.0                  
+echo ================================================================
+echo.
+echo  Select installation type:
+echo.
+echo  [1] RECOMMENDED - Full Installation
+echo      * Detailed progress and logs
+echo      * Error handling and recovery
+echo      * Creates shortcuts and launchers
+echo      * Time: 10-15 minutes
+echo.
+echo  [2] QUICK - Silent Installation
+echo      * Minimal output, faster setup
+echo      * Progress bar only
+echo      * Essential components only
+echo      * Time: 5-8 minutes
+echo.
+echo  [3] CUSTOM - Advanced Options
+echo      * Choose components to install
+echo      * Specify installation directory
+echo      * Configure settings
+echo.
+echo  [4] SYSTEM INFO - Check Requirements
+echo.
+echo  [0] EXIT
+echo.
+echo ================================================================
 echo.
 echo 📁 Installation Directory: %CD%\DevProjectRunner
 echo 💾 Required Space: ~500MB
