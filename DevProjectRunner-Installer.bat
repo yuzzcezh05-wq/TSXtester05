@@ -134,39 +134,39 @@ echo     "electron-builder": "^24.6.4"
 echo   }
 echo }
 ) > package.json
-echo ✅ Package configuration created
+echo [OK] Package configuration created
 
 :: Step 3: Dependencies
 echo.
-echo 🔄 [3/6] Installing dependencies (~300MB)...
-echo ⏳ This will take 5-10 minutes depending on your connection...
-echo    Please be patient, downloading from npm registry...
+echo [3/6] Installing dependencies (~300MB)...
+echo [WAIT] This will take 5-10 minutes depending on your connection...
+echo        Please be patient, downloading from npm registry...
 call npm install
 if %errorLevel% neq 0 (
-    echo ❌ Failed to install dependencies
-    echo    Check your internet connection and try again
+    echo [ERROR] Failed to install dependencies
+    echo         Check your internet connection and try again
     pause
     goto MAIN_MENU
 )
-echo ✅ All dependencies installed successfully
+echo [OK] All dependencies installed successfully
 
 :: Step 4: Application Files  
 echo.
-echo 🔄 [4/6] Downloading application files...
+echo [4/6] Downloading application files...
 call :DOWNLOAD_APP_FILES
 
 :: Step 5: Launchers
 echo.
-echo 🔄 [5/6] Creating launchers and shortcuts...
+echo [5/6] Creating launchers and shortcuts...
 call :CREATE_LAUNCHERS
 
 :: Step 6: Desktop Integration
 echo.
-echo 🔄 [6/6] Setting up desktop integration...
+echo [6/6] Setting up desktop integration...
 call :DESKTOP_INTEGRATION
 
 echo.
-echo ✅ FULL INSTALLATION COMPLETED SUCCESSFULLY!
+echo [SUCCESS] FULL INSTALLATION COMPLETED SUCCESSFULLY!
 goto INSTALL_COMPLETE
 
 :QUICK_INSTALL
