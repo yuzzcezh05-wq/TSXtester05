@@ -4,9 +4,9 @@
   "description": "Standalone Electron app for browsing and running development projects",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron . --no-sandbox",
     "build": "electron-builder",
-    "dev": "electron . --dev",
+    "dev": "electron . --dev --no-sandbox",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
