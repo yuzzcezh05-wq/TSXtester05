@@ -413,7 +413,7 @@ echo  Status: Ready for offline use!
 echo ================================================================
 echo.
 
-set /p launch="🚀 Launch Dev Project Runner now? (Y/n): "
+set /p launch="Launch Dev Project Runner now? (Y/n): "
 if /i "%launch%" neq "n" (
     echo Starting application...
     start "" "Launch Dev Project Runner.bat"
@@ -422,14 +422,14 @@ if /i "%launch%" neq "n" (
 )
 
 echo.
-echo 👍 Installation complete! You can launch it anytime.
+echo Installation complete! You can launch it anytime.
 echo.
 pause
 exit /b
 
 :EXIT
 echo.
-echo 👋 Installation cancelled by user.
+echo Installation cancelled by user.
 echo.
 pause
 exit /b
