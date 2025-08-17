@@ -379,7 +379,7 @@ echo ^)
 echo pause
 ) > "Uninstall.bat"
 
-echo ✅ Launcher scripts created
+echo [OK] Launcher scripts created
 exit /b
 
 :DESKTOP_INTEGRATION
