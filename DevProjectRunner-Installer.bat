@@ -248,11 +248,11 @@ goto INSTALL_COMPLETE
 
 :SYSTEM_INFO
 cls
-echo ╔══════════════════════════════════════════════════════════════╗
-echo ║                    SYSTEM INFORMATION                        ║
-echo ╚══════════════════════════════════════════════════════════════╝
+echo ================================================================
+echo                     SYSTEM INFORMATION                        
+echo ================================================================
 echo.
-echo 🖥️  System Requirements Check:
+echo System Requirements Check:
 echo.
 echo Operating System:
 systeminfo | findstr /C:"OS Name"
