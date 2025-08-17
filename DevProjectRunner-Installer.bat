@@ -171,9 +171,9 @@ goto INSTALL_COMPLETE
 
 :QUICK_INSTALL
 cls
-echo ╔══════════════════════════════════════════════════════════════╗
-echo ║                    QUICK INSTALLATION                        ║
-echo ╚══════════════════════════════════════════════════════════════╝
+echo ================================================================
+echo                     QUICK INSTALLATION                        
+echo ================================================================
 echo.
 echo Installing Dev Project Runner (Silent Mode)...
 echo.
