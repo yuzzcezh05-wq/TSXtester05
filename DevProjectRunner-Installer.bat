@@ -399,17 +399,18 @@ exit /b
 
 :INSTALL_COMPLETE
 echo.
-echo ╔══════════════════════════════════════════════════════════════╗
-echo ║                 INSTALLATION SUCCESSFUL!                     ║
-echo ║                                                              ║
-echo ║  🚀 Launch App: "Launch Dev Project Runner.bat"             ║
-echo ║  🔄 Update:     "Update.bat"                                 ║
-echo ║  🗑️  Uninstall:  "Uninstall.bat"                           ║
-echo ║                                                              ║
-echo ║  📁 Location: %CD%                                          ║
-echo ║  💾 Size: ~500MB                                            ║
-echo ║  🌐 Status: Ready for offline use!                          ║
-echo ╚══════════════════════════════════════════════════════════════╝
+echo ================================================================
+echo                  INSTALLATION SUCCESSFUL!                     
+echo ================================================================
+echo.
+echo  Launch App: "Launch Dev Project Runner.bat"             
+echo  Update:     "Update.bat"                                 
+echo  Uninstall:  "Uninstall.bat"                           
+echo.
+echo  Location: %CD%                                          
+echo  Size: ~500MB                                            
+echo  Status: Ready for offline use!                          
+echo ================================================================
 echo.
 
 set /p launch="🚀 Launch Dev Project Runner now? (Y/n): "
