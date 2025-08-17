@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Project Runner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <div class="logo-icon">⚡</div>
+                    <span class="logo-text">Dev Project Runner</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="btn-secondary" id="browse-btn">
+                    <span class="icon">📁</span>
+                    Browse Folder
+                </button>
+                <div class="status-indicator" id="status-indicator">
+                    <div class="status-dot"></div>
+                    <span>Ready</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Left Panel - File Explorer -->
+            <div class="left-panel">
+                <div class="panel-header">
+                    <h3>File Explorer</h3>
+                    <div class="panel-actions">
+                        <button class="icon-btn" id="refresh-btn" title="Refresh">🔄</button>
+                    </div>
+                </div>
+                <div class="file-tree" id="file-tree">
+                    <div class="empty-state">
+                        <div class="empty-icon">📁</div>
+                        <p>No folder selected</p>
+                        <button class="btn-primary" id="browse-empty">Browse Folder</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Panel - Project Dashboard -->
+            <div class="center-panel">
+                <div class="panel-header">
+                    <h3>Project Dashboard</h3>
+                    <div class="panel-actions">
+                        <select class="package-manager" id="package-manager">
+                            <option value="npm">npm</option>
+                            <option value="yarn">yarn</option>
+                            <option value="pnpm">pnpm</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="projects-container" id="projects-container">
+                    <div class="empty-state">
+                        <div class="empty-icon">🚀</div>
+                        <p>No projects detected</p>
+                        <small>Select a folder with package.json to get started</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Quick Actions -->
+            <div class="right-panel">
+                <div class="panel-header">
+                    <h3>Quick Actions</h3>
+                </div>
+                <div class="quick-actions">
+                    <button class="action-card" id="stop-all-btn" disabled>
+                        <div class="action-icon">⏹️</div>
+                        <div class="action-text">
+                            <strong>Stop All</strong>
+                            <small>Stop all running projects</small>
+                        </div>
+                    </button>
+                    <button class="action-card" id="open-explorer-btn" disabled>
+                        <div class="action-icon">📂</div>
+                        <div class="action-text">
+                            <strong>Open Explorer</strong>
+                            <small>Open in file manager</small>
+                        </div>
+                    </button>
+                    <div class="running-projects" id="running-projects">
+                        <h4>Running Projects</h4>
+                        <div class="running-list" id="running-list">
+                            <p class="empty-text">No projects running</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Panel - Terminal/Console -->
+        <div class="bottom-panel" id="bottom-panel">
+            <div class="panel-header">
+                <h3>Console Output</h3>
+                <div class="panel-actions">
+                    <button class="icon-btn" id="clear-console" title="Clear Console">🗑️</button>
+                    <button class="icon-btn" id="toggle-console" title="Toggle Console">📄</button>
+                </div>
+            </div>
+            <div class="console-content" id="console-content">
+                <div class="console-welcome">
+                    <p>🎯 Console ready - Project outputs will appear here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
