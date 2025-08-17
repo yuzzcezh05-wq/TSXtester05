@@ -1,19 +1,22 @@
 {
-  "name": "dev-project-runner",
-  "version": "1.0.0",
-  "description": "Standalone Electron app for browsing and running development projects",
-  "main": "main-enhanced.js",
+  "name": "dev-project-runner-enhanced",
+  "version": "2.0.0",
+  "description": "Enhanced Electron app for browsing and running development projects with automatic TSX support",
+  "main": "main.js",
+  "keywords": ["electron", "tsx", "react", "typescript", "project-runner", "development", "vite"],
   "scripts": {
     "start": "electron . --no-sandbox",
-    "build": "electron-builder",
     "dev": "electron . --dev --no-sandbox",
+    "build": "electron-builder",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "build-standalone": "node build-standalone.js"
+    "clean": "rm -rf node_modules dist",
+    "setup": "npm install",
+    "test": "echo \"Tests will be implemented in future versions\""
   },
   "build": {
-    "appId": "com.devrunner.app",
-    "productName": "Dev Project Runner",
+    "appId": "com.devrunner.enhanced",
+    "productName": "Dev Project Runner Enhanced",
     "directories": {
       "output": "dist"
     },
@@ -29,19 +32,15 @@
       {
         "from": "templates",
         "to": "templates"
-      },
-      {
-        "from": "tools",
-        "to": "tools"
       }
     ],
     "win": {
       "target": "nsis",
-      "icon": "assets/icon.ico"
+      "icon": "assets/icon.png"
     },
     "mac": {
       "target": "dmg",
-      "icon": "assets/icon.icns"
+      "icon": "assets/icon.png"
     },
     "linux": {
       "target": "AppImage",
@@ -54,12 +53,23 @@
     "tree-kill": "^1.2.2",
     "portfinder": "^1.0.32",
     "extract-zip": "^2.0.1",
-    "node-pty": "^1.0.0",
     "ws": "^8.14.2"
   },
   "devDependencies": {
     "electron-builder": "^24.6.4"
   },
-  "author": "Dev Project Runner",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/dev-project-runner-enhanced.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/dev-project-runner-enhanced/issues"
+  },
+  "homepage": "https://github.com/yourusername/dev-project-runner-enhanced#readme",
+  "author": "Dev Project Runner Enhanced Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
 }
