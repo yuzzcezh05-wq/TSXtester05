@@ -214,22 +214,58 @@
             
             showStatus('Starting Dev Project Runner...', 'info');
             
+            // Check if we're running in Electron environment
+            if (typeof window !== 'undefined' && window.require) {
+                try {
+                    // We're in Electron - redirect to main app
+                    const { ipcRenderer } = window.require('electron');
+                    showStatus('Launching main application...', 'success');
+                    
+                    setTimeout(() => {
+                        window.location.href = './renderer/index.html';
+                    }, 1000);
+                    return;
+                } catch (error) {
+                    console.log('Not in Electron environment, trying other methods...');
+                }
+            }
+            
             // Try different methods to launch the Electron app
             const attempts = [
                 () => {
-                    // Method 1: Try to execute via file protocol
-                    const path = window.location.pathname.replace('/DevProjectRunner.html', '');
-                    window.location.href = `file://${path}/Dev Project Runner.exe`;
+                    // Method 1: Check if this is a development environment
+                    showStatus('Checking for development environment...', 'info');
+                    if (window.location.protocol === 'file:') {
+                        // Development mode - redirect to main app
+                        window.location.href = './renderer/index.html';
+                        return true;
+                    }
+                    return false;
                 },
                 () => {
-                    // Method 2: Try to open the executable
+                    // Method 2: Try npm start command instruction
+                    showStatus('Development Mode Detected', 'info');
+                    showManualInstructions('development');
+                    return true;
+                },
+                () => {
+                    // Method 3: Try to open built executable
                     showStatus('Attempting to launch executable...', 'info');
-                    window.open('./Dev Project Runner.exe', '_blank');
-                },
-                () => {
-                    // Method 3: Try batch file
-                    showStatus('Trying alternative launch method...', 'info');
-                    window.open('./Launch.bat', '_blank');
+                    const execPaths = [
+                        './Launch Dev Project Runner.bat',
+                        './Dev Project Runner.exe',
+                        './Launch.bat'
+                    ];
+                    
+                    for (const execPath of execPaths) {
+                        try {
+                            window.open(execPath, '_blank');
+                            return true;
+                        } catch (e) {
+                            console.log(`Failed to launch ${execPath}`);
+                        }
+                    }
+                    return false;
                 }
             ];
             
@@ -238,41 +274,51 @@
             function tryNextAttempt() {
                 if (attemptIndex < attempts.length) {
                     try {
-                        attempts[attemptIndex]();
+                        const success = attempts[attemptIndex]();
+                        if (success) {
+                            setTimeout(() => {
+                                btn.innerHTML = originalText;
+                                btn.classList.remove('loading');
+                                btn.disabled = false;
+                            }, 2000);
+                            return;
+                        }
                         attemptIndex++;
-                        
-                        setTimeout(() => {
-                            // Check if app launched successfully
-                            showStatus('If the app didn\'t launch, try running "Launch.bat" or the executable directly.', 'info');
-                            btn.innerHTML = originalText;
-                            btn.classList.remove('loading');
-                            btn.disabled = false;
-                        }, 3000);
+                        setTimeout(tryNextAttempt, 1000);
                         
                     } catch (error) {
                         attemptIndex++;
                         if (attemptIndex < attempts.length) {
                             setTimeout(tryNextAttempt, 1000);
                         } else {
-                            showManualInstructions();
+                            showManualInstructions('production');
                         }
                     }
                 } else {
-                    showManualInstructions();
+                    showManualInstructions('production');
                 }
             }
             
-            function showManualInstructions() {
-                showStatus(`
-                    Please manually launch the application:
-                    • Windows: Double-click "Launch.bat" or "Dev Project Runner.exe"
-                    • macOS: Open "Dev Project Runner.app"
-                    • Linux: Run "./launch.sh"
-                `, 'info');
+            function showManualInstructions(mode = 'production') {
+                if (mode === 'development') {
+                    showStatus(`
+                        Development Mode Instructions:
+                        1. Open terminal/command prompt
+                        2. Navigate to project directory
+                        3. Run: npm start
+                        4. Or double-click "Launch Dev Project Runner.bat"
+                    `, 'info');
+                } else {
+                    showStatus(`
+                        Manual Launch Instructions:
+                        • Windows: Double-click "Launch Dev Project Runner.bat"
+                        • Or run: npm start in terminal
+                        • If built: Double-click "Dev Project Runner.exe"
+                    `, 'info');
+                }
                 
                 btn.innerHTML = '📁 Open Folder';
                 btn.onclick = () => {
-                    // Try to open the current directory
                     try {
                         window.open('./', '_blank');
                     } catch (e) {
