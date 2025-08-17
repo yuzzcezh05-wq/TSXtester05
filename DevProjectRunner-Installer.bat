@@ -87,13 +87,13 @@ cd DevProjectRunner
 
 :: Step 1: Node.js
 echo.
-echo 🔄 [1/6] Checking Node.js installation...
+echo [1/6] Checking Node.js installation...
 node --version >nul 2>&1
 if %errorLevel% == 0 (
-    echo ✅ Node.js already installed: 
+    echo [OK] Node.js already installed: 
     node --version
 ) else (
-    echo 📥 Downloading Node.js v18.19.0 (64-bit)...
+    echo [DOWNLOAD] Downloading Node.js v18.19.0 (64-bit)...
     powershell -Command "& {
         Write-Host '  Downloading from nodejs.org...' -ForegroundColor Yellow
         Invoke-WebRequest -Uri 'https://nodejs.org/dist/v18.19.0/node-v18.19.0-win-x64.zip' -OutFile 'node.zip' -UseBasicParsing
@@ -102,14 +102,14 @@ if %errorLevel% == 0 (
         Move-Item 'node-temp\node-v18.19.0-win-x64\*' '.\' -Force
         Remove-Item 'node-temp' -Recurse -Force
         Remove-Item 'node.zip' -Force
-        Write-Host '✅ Node.js installed successfully' -ForegroundColor Green
+        Write-Host '[OK] Node.js installed successfully' -ForegroundColor Green
     }"
     set "PATH=%CD%;%CD%\npm;%PATH%"
 )
 
 :: Step 2: Package.json
 echo.
-echo 🔄 [2/6] Creating package configuration...
+echo [2/6] Creating package configuration...
 (
 echo {
 echo   "name": "dev-project-runner-standalone",
