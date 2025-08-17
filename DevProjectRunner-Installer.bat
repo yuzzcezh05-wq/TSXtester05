@@ -209,7 +209,7 @@ echo call npm start >> "Launch.bat"
 call :SHOW_PROGRESS 100 "Installation complete!"
 
 echo.
-echo ✅ QUICK INSTALLATION COMPLETED!
+echo [OK] QUICK INSTALLATION COMPLETED!
 goto INSTALL_COMPLETE
 
 :CUSTOM_INSTALL
