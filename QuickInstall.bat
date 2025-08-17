@@ -1,11 +1,17 @@
 @echo off
-:: Quick Install Version - Minimal output, faster setup
-
-:: Self-elevate if not admin
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-if '%errorlevel%' NEQ '0' (
-    powershell -Command "Start-Process '%~f0' -Verb RunAs" && exit /b
+echo.
+echo ⚠️  DEPRECATED: This file has been replaced
+echo.
+echo 🎯 Please use: DevProjectRunner-Installer.bat
+echo    (New unified installer with GUI options)
+echo.
+echo 🚀 Would you like to launch the new installer?
+set /p choice="(Y/n): "
+if /i "%choice%" neq "n" (
+    start "" "DevProjectRunner-Installer.bat"
 )
+pause
+exit /b
 
 cd /d "%~dp0"
 if not exist "DevProjectRunner" mkdir DevProjectRunner
