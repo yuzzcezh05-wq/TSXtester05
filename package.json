@@ -8,7 +8,8 @@
     "build": "electron-builder",
     "dev": "electron . --dev --no-sandbox",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "build-standalone": "node build-standalone.js"
   },
   "build": {
     "appId": "com.devrunner.app",
