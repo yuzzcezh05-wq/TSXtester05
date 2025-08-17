@@ -214,13 +214,13 @@ goto INSTALL_COMPLETE
 
 :CUSTOM_INSTALL
 cls
-echo ╔══════════════════════════════════════════════════════════════╗
-echo ║                    CUSTOM INSTALLATION                       ║
-echo ╚══════════════════════════════════════════════════════════════╝
+echo ================================================================
+echo                     CUSTOM INSTALLATION                       
+echo ================================================================
 echo.
 echo Choose components to install:
 echo.
-echo [1] ✅ Node.js Runtime (Required) - 50MB
+echo [1] [X] Node.js Runtime (Required) - 50MB
 set /p comp1="[2] Install Electron Framework? (Y/n): "
 set /p comp2="[3] Install Build Tools? (Y/n): "  
 set /p comp3="[4] Install Templates? (Y/n): "
