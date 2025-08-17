@@ -329,7 +329,7 @@ powershell -Command "& {
         }
     }
     
-    Write-Host '✅ Application files ready'
+    Write-Host '[OK] Application files ready'
 }"
 exit /b
 
