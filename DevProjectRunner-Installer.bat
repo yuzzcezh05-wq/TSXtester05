@@ -61,16 +61,16 @@ goto MAIN_MENU
 
 :FULL_INSTALL
 cls
-echo ╔══════════════════════════════════════════════════════════════╗
-echo ║                    FULL INSTALLATION                         ║
-echo ╚══════════════════════════════════════════════════════════════╝
+echo ================================================================
+echo                     FULL INSTALLATION                         
+echo ================================================================
 echo.
 echo This will install all components with detailed progress:
-echo • Node.js Runtime (~50MB)
-echo • NPM Dependencies (~200MB)  
-echo • Electron Framework (~150MB)
-echo • Build Tools (~100MB)
-echo • Application Files (~10MB)
+echo * Node.js Runtime (~50MB)
+echo * NPM Dependencies (~200MB)  
+echo * Electron Framework (~150MB)
+echo * Build Tools (~100MB)
+echo * Application Files (~10MB)
 echo.
 echo Total Download: ~510MB
 echo Installation Time: 10-15 minutes
@@ -79,8 +79,8 @@ set /p confirm="Continue with full installation? (Y/n): "
 if /i "%confirm%"=="n" goto MAIN_MENU
 
 echo.
-echo 🚀 Starting Full Installation...
-echo ═══════════════════════════════════════════════════════════════
+echo Starting Full Installation...
+echo ===============================================================
 
 if not exist "DevProjectRunner" mkdir DevProjectRunner
 cd DevProjectRunner
