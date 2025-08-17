@@ -299,8 +299,8 @@ goto MAIN_MENU
 :SHOW_PROGRESS
 set "bar="
 set /a "bars=%1/5"
-for /l %%i in (1,1,%bars%) do set "bar=!bar!█"
-for /l %%i in (%bars%,1,19) do set "bar=!bar!░"
+for /l %%i in (1,1,%bars%) do set "bar=!bar!#"
+for /l %%i in (%bars%,1,19) do set "bar=!bar!-"
 echo [!bar!] %1%% - %2
 exit /b
 
