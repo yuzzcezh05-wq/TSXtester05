@@ -391,7 +391,7 @@ powershell -Command "& {
     $shortcut.WorkingDirectory = '%CD%'
     $shortcut.Description = 'Dev Project Runner - Standalone Development Environment'
     $shortcut.Save()
-    Write-Host '✅ Desktop shortcut created'
+    Write-Host '[OK] Desktop shortcut created'
 }"
 
 echo ✅ Desktop integration complete
