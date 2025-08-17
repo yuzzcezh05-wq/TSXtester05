@@ -425,8 +425,9 @@ export default defineConfig({
     return await this.runTest('Framework Detection Logic', async () => {
       // Test Next.js detection
       const nextjsPackage = {
-        dependencies: { react: '^18.0.0', next: '^13.0.0' },
-        devDependencies: { typescript: '^5.0.0' }
+        next: '^13.0.0',
+        react: '^18.0.0',
+        typescript: '^5.0.0'
       };
       const nextjsResult = await this.detectTsxProject('/tmp/test', nextjsPackage, ['/tmp/test/page.tsx']);
       if (nextjsResult.type !== 'nextjs-ts') {
@@ -435,8 +436,9 @@ export default defineConfig({
 
       // Test CRA detection
       const craPackage = {
-        dependencies: { react: '^18.0.0', 'react-scripts': '^5.0.0' },
-        devDependencies: { typescript: '^5.0.0' }
+        'react-scripts': '^5.0.0',
+        react: '^18.0.0',
+        typescript: '^5.0.0'
       };
       const craResult = await this.detectTsxProject('/tmp/test', craPackage, ['/tmp/test/App.tsx']);
       if (craResult.type !== 'cra-ts') {
@@ -445,8 +447,9 @@ export default defineConfig({
 
       // Test Vite detection
       const vitePackage = {
-        dependencies: { react: '^18.0.0' },
-        devDependencies: { vite: '^4.0.0', typescript: '^5.0.0' }
+        vite: '^4.0.0',
+        react: '^18.0.0',
+        typescript: '^5.0.0'
       };
       const viteResult = await this.detectTsxProject('/tmp/test', vitePackage, ['/tmp/test/main.tsx']);
       if (viteResult.type !== 'vite-react-ts') {
