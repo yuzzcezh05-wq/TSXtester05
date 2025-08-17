@@ -254,6 +254,7 @@ export default function NestedApp() {
     let buildTool = '';
     let autoScripts = {};
 
+    // Check for existing build tools and frameworks first
     if (dependencies.next) {
       type = 'nextjs-ts';
       framework = 'Next.js + TypeScript';
@@ -267,6 +268,7 @@ export default function NestedApp() {
       framework = 'Vite + React + TypeScript';
       buildTool = 'Vite';
     } else {
+      // Auto-detect based on TSX file structure only if no existing framework
       const hasAppTsx = tsxFiles.some(file => file.includes('App.tsx'));
       const hasIndexTsx = tsxFiles.some(file => file.includes('index.tsx') || file.includes('main.tsx'));
       
