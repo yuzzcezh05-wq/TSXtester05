@@ -394,7 +394,7 @@ powershell -Command "& {
     Write-Host '[OK] Desktop shortcut created'
 }"
 
-echo ✅ Desktop integration complete
+echo [OK] Desktop integration complete
 exit /b
 
 :INSTALL_COMPLETE
