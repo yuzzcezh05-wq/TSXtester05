@@ -274,24 +274,24 @@ echo.
 echo Internet Connectivity:
 ping -n 1 google.com >nul 2>&1
 if %errorLevel% == 0 (
-    echo   Status: ✅ Connected
+    echo   Status: [OK] Connected
 ) else (
-    echo   Status: ❌ No internet connection
-    echo   ⚠️  Internet required for installation
+    echo   Status: [ERROR] No internet connection
+    echo   WARNING: Internet required for installation
 )
 
 echo.
 echo Node.js Status:
 node --version >nul 2>&1
 if %errorLevel% == 0 (
-    echo   Installed: ✅ 
+    echo   Installed: [OK] 
     node --version
 ) else (
-    echo   Installed: ❌ Will be downloaded during installation
+    echo   Installed: [NO] Will be downloaded during installation
 )
 
 echo.
-echo ✅ System check complete
+echo [OK] System check complete
 echo.
 pause
 goto MAIN_MENU
